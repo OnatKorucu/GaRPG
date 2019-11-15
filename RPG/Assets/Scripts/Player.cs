@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        Vector3 movementInput = new Vector3(0, 0, PlayerInput.Vertical);
+        Vector3 movementInput = new Vector3(PlayerInput.Horizontal, 0, PlayerInput.Vertical);
         Vector3 movement = transform.rotation * movementInput;
         _characterController.SimpleMove(movement);
     }
