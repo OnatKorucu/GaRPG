@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerInput
+public class PlayerInput : IPlayerInput
 {
-    public float Vertical { get; set; }
+    public float Vertical => Input.GetAxis("Vertical");
 }

@@ -19,14 +19,21 @@ namespace a_player
             playerGameObject.transform.position = new Vector3(0, 1.5f, 0);
             
             Player player = playerGameObject.AddComponent<Player>();
-            player.PlayerInput.Vertical = 1f;
-
             float startingZ = player.transform.position.z;
+            
+            TestPlayerInput testPlayerInput = new TestPlayerInput();
+            testPlayerInput.Vertical = 1f;
+            player.PlayerInput = testPlayerInput;
             
             yield return new WaitForSeconds(5f);
 
             float endingZ = player.transform.position.z;
             Assert.Greater(endingZ, startingZ);
         }
+    }
+
+    public class TestPlayerInput : IPlayerInput
+    {
+        public float Vertical { get; set; }
     }
 }

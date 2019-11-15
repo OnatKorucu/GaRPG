@@ -6,6 +6,7 @@
     <e p="E:\Unity\projects\github\GaRPG\RPG" t="IncludeRecursive">
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
+          <e p="IPlayerInput.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="PlayerInput.cs" t="Include" />
           <e p="Scripts.asmdef" t="Include" />

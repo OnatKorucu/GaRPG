@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     private CharacterController _characterController;
-    public PlayerInput PlayerInput { get; } = new PlayerInput();
+    public IPlayerInput PlayerInput { get; set; } = new PlayerInput();
 
     private void Awake()
     {
