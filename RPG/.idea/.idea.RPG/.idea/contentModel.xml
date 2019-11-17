@@ -18,7 +18,7 @@
         <e p="TestsPlay" t="Include">
           <e p="a_moving_cube.cs" t="Include" />
           <e p="TestsPlay.asmdef" t="Include" />
-          <e p="with_positive_vertical_input.cs" t="Include" />
+          <e p="with_positive_input.cs" t="Include" />
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />

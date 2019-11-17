@@ -5,10 +5,10 @@ using UnityEngine.TestTools;
 
 namespace a_player
 {
-    public class with_positive_vertical_input
+    public class with_positive_input
     {
         [UnityTest]
-        public IEnumerator moves_forward()
+        public IEnumerator moves_forward_on_vertical()
         {
             GameObject floor = GameObject.CreatePrimitive(PrimitiveType.Cube);
             floor.transform.localPosition = Vector3.zero;
@@ -32,7 +32,7 @@ namespace a_player
         }
         
         [UnityTest]
-        public IEnumerator moves_sidewards()
+        public IEnumerator moves_sideways_on_horizontal()
         {
             GameObject floor = GameObject.CreatePrimitive(PrimitiveType.Cube);
             floor.transform.localPosition = Vector3.zero;
