@@ -3,17 +3,27 @@
 public class Player : MonoBehaviour
 {
     private CharacterController _characterController;
+    private IMover _mover;
+    
     public IPlayerInput PlayerInput { get; set; } = new PlayerInput();
 
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
+        _mover = new NavmeshMover(this);
     }
 
     private void Update()
     {
-        Vector3 movementInput = new Vector3(PlayerInput.Horizontal, 0, PlayerInput.Vertical);
-        Vector3 movement = transform.rotation * movementInput;
-        _characterController.SimpleMove(movement);
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            _mover = new Mover(this);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            _mover = new NavmeshMover(this);
+        }
+        
+        _mover.Tick();
     }
 }
