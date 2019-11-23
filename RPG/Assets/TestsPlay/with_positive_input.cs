@@ -1,4 +1,5 @@
 using System.Collections;
+using NSubstitute;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -10,20 +11,13 @@ namespace a_player
         [UnityTest]
         public IEnumerator moves_forward_on_vertical()
         {
-            GameObject floor = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            floor.transform.localPosition = Vector3.zero;
-            floor.transform.localScale = new Vector3(50, 0.1f, 50);
+            Helpers.CreateFloor();
             
-            GameObject playerGameObject = GameObject.CreatePrimitive(PrimitiveType.Capsule);
-            playerGameObject.AddComponent<CharacterController>();
-            playerGameObject.transform.position = new Vector3(0, 1.5f, 0);
+            Player player = Helpers.CreatePlayer();
+            player.PlayerInput.Vertical.Returns(1f);
             
-            Player player = playerGameObject.AddComponent<Player>();
             float startingZ = player.transform.position.z;
             
-            TestPlayerInput testPlayerInput = new TestPlayerInput();
-            testPlayerInput.Vertical = 1f;
-            player.PlayerInput = testPlayerInput;
             
             yield return new WaitForSeconds(5f);
 
@@ -31,35 +25,5 @@ namespace a_player
             Assert.Greater(endingZ, startingZ);
         }
         
-        [UnityTest]
-        public IEnumerator moves_sideways_on_horizontal()
-        {
-            GameObject floor = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            floor.transform.localPosition = Vector3.zero;
-            floor.transform.localScale = new Vector3(50, 0.1f, 50);
-            
-            GameObject playerGameObject = GameObject.CreatePrimitive(PrimitiveType.Capsule);
-            playerGameObject.AddComponent<CharacterController>();
-            playerGameObject.transform.position = new Vector3(0, 1.5f, 0);
-            
-            Player player = playerGameObject.AddComponent<Player>();
-            float startingX = player.transform.position.x;
-            
-            TestPlayerInput testPlayerInput = new TestPlayerInput();
-            testPlayerInput.Horizontal = 1f;
-            player.PlayerInput = testPlayerInput;
-            
-            yield return new WaitForSeconds(5f);
-
-            float endingX = player.transform.position.x;
-            Assert.Greater(endingX, startingX);
-        }
-    }
-
-    public class TestPlayerInput : IPlayerInput
-    {
-        public float Vertical { get; set; }
-        
-        public float Horizontal { get; set; }
     }
 }

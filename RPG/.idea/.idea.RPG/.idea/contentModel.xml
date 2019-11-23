@@ -12,6 +12,7 @@
           <e p="NavmeshMover.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="PlayerInput.cs" t="Include" />
+          <e p="Rotator.cs" t="Include" />
           <e p="Scripts.asmdef" t="Include" />
         </e>
         <e p="Tests" t="Include">
@@ -20,7 +21,10 @@
         </e>
         <e p="TestsPlay" t="Include">
           <e p="a_moving_cube.cs" t="Include" />
+          <e p="Helpers.cs" t="Include" />
+          <e p="TestPlayerInput.cs" t="Include" />
           <e p="TestsPlay.asmdef" t="Include" />
+          <e p="with_negative_mouse_x.cs" t="Include" />
           <e p="with_positive_input.cs" t="Include" />
         </e>
       </e>
