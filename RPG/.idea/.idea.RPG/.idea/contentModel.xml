@@ -20,7 +20,6 @@
           <e p="Tests.asmdef" t="Include" />
         </e>
         <e p="TestsPlay" t="Include">
-          <e p="a_moving_cube.cs" t="Include" />
           <e p="Helpers.cs" t="Include" />
           <e p="TestPlayerInput.cs" t="Include" />
           <e p="TestsPlay.asmdef" t="Include" />

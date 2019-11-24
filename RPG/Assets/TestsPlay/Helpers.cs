@@ -1,26 +1,25 @@
+using System.Collections;
 using NSubstitute;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 namespace a_player
 {
     public static class Helpers
     {
-        public static void CreateFloor()
+        public static IEnumerator LoadMovementTestScene()
         {
-            GameObject floor = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            floor.transform.localPosition = Vector3.zero;
-            floor.transform.localScale = new Vector3(50, 0.1f, 50);
+            var operation = SceneManager.LoadSceneAsync("MovementTests");
+            while (operation.isDone == false)
+            {
+                yield return null;
+            }
         }
 
-        public static Player CreatePlayer()
+        public static Player GetPlayer()
         {
-            GameObject playerGameObject = GameObject.CreatePrimitive(PrimitiveType.Capsule);
-            playerGameObject.AddComponent<CharacterController>();
-            playerGameObject.AddComponent<NavMeshAgent>();
-            playerGameObject.transform.position = new Vector3(0, 1.5f, 0);
-            
-            Player player = playerGameObject.AddComponent<Player>();
+            Player player = GameObject.FindObjectOfType<Player>();
             
             var testPlayerInput = Substitute.For<IPlayerInput>();
             player.PlayerInput = testPlayerInput;

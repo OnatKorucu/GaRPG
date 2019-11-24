@@ -11,9 +11,9 @@ namespace a_player
         [UnityTest]
         public IEnumerator turns_left()
         {
-            Helpers.CreateFloor();
+            yield return Helpers.LoadMovementTestScene();
 
-            Player player = Helpers.CreatePlayer();
+            Player player = Helpers.GetPlayer();
             player.PlayerInput.MouseX.Returns(-1f);
 
             var originalRotation = player.transform.rotation;
@@ -22,6 +22,25 @@ namespace a_player
 
             float turnAmout = Helpers.CalculateTurn(originalRotation, player.transform.rotation);
             Assert.Less(turnAmout, 0f);
+        }
+    }
+    
+    public class with_positive_mouse_x
+    {
+        [UnityTest]
+        public IEnumerator turns_right()
+        {
+            yield return Helpers.LoadMovementTestScene();
+
+            Player player = Helpers.GetPlayer();
+            player.PlayerInput.MouseX.Returns(1f);
+
+            var originalRotation = player.transform.rotation;
+            
+            yield return new WaitForSeconds(0.5f);
+
+            float turnAmout = Helpers.CalculateTurn(originalRotation, player.transform.rotation);
+            Assert.Greater(turnAmout, 0f);
         }
     }
 }
