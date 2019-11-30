@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5569029402146188860}
   - component: {fileID: 5569029402146188861}
   - component: {fileID: 5569029402146188863}
+  - component: {fileID: 1318570369211480318}
   m_Layer: 0
   m_Name: Staff
   m_TagString: Untagged
@@ -59,6 +60,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b7ec892e9bc204cb298b5e9bf08267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _actions:
+  - UseMode: 0
+    TargetComponent: {fileID: 1318570369211480318}
+--- !u!114 &1318570369211480318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5569029402146188850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded641643964407aa0c71265c4ea2ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5569029402842537873
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66,6 +82,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5569029402146188860}
     m_Modifications:
+    - target: {fileID: 174694, guid: b43bfa1513653534694fade06a14b8b2, type: 3}
+      propertyPath: m_Name
+      value: SM_Wep_Staff_Gem_01
+      objectReference: {fileID: 0}
     - target: {fileID: 414092, guid: b43bfa1513653534694fade06a14b8b2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -109,10 +129,6 @@ PrefabInstance:
     - target: {fileID: 414092, guid: b43bfa1513653534694fade06a14b8b2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 174694, guid: b43bfa1513653534694fade06a14b8b2, type: 3}
-      propertyPath: m_Name
-      value: SM_Wep_Staff_Gem_01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b43bfa1513653534694fade06a14b8b2, type: 3}
