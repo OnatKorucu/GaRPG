@@ -10,7 +10,7 @@ namespace a_player
     {
         public static IEnumerator LoadMovementTestScene()
         {
-            var operation = SceneManager.LoadSceneAsync("MovementTests");
+            var operation = SceneManager.LoadSceneAsync("Tests");
             while (operation.isDone == false)
             {
                 yield return null;
