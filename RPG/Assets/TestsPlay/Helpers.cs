@@ -8,7 +8,7 @@ namespace a_player
 {
     public static class Helpers
     {
-        public static IEnumerator LoadMovementTestScene()
+        public static IEnumerator LoadTestScene()
         {
             var operation = SceneManager.LoadSceneAsync("Tests");
             while (operation.isDone == false)
