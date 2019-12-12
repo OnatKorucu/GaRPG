@@ -3,9 +3,9 @@ using UnityEngine;
 
 public abstract class ItemComponent : MonoBehaviour
 {
-    public bool CanUse => Time.time >= _nextUseTime;
+    public bool CanUse => Time.time >= nextUseTime;
     
-    protected float _nextUseTime;
+    protected float nextUseTime;
 
     public abstract void Use();
 

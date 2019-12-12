@@ -16,7 +16,8 @@ public class ItemRaycaster : ItemComponent
 
     public override void Use()
     {
-        _nextUseTime = Time.time + delay;
+        nextUseTime = Time.time + delay;
+        Debug.Log("Using the Use() method...");
 
         Ray ray = Camera.main.ViewportPointToRay(Vector3.one / 2f);
         int hits = Physics.RaycastNonAlloc(ray, _results, _range, _layermask, QueryTriggerInteraction.Collide);
