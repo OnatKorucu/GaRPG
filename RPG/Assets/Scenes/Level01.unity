@@ -214,6 +214,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &477141092 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1318570369211480318, guid: ca94dc654970e134f8a19c2d25507798,
+    type: 3}
+  m_PrefabInstance: {fileID: 5569029401927707333}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded641643964407aa0c71265c4ea2ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &535251395 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2049474056930811375, guid: 32ac8a4f340285a43b73ff9e1e73617c,
@@ -622,13 +634,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5569029402146188863, guid: ca94dc654970e134f8a19c2d25507798,
         type: 3}
+      propertyPath: _actions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5569029402146188863, guid: ca94dc654970e134f8a19c2d25507798,
+        type: 3}
       propertyPath: _actions.Array.data[0].TargetComponent
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1580286319}
     - target: {fileID: 5569029402146188863, guid: ca94dc654970e134f8a19c2d25507798,
         type: 3}
       propertyPath: actions.Array.data[0].TargetComponent
       value: 
       objectReference: {fileID: 1580286319}
+    - target: {fileID: 5569029402146188863, guid: ca94dc654970e134f8a19c2d25507798,
+        type: 3}
+      propertyPath: _crosshairMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5569029402146188863, guid: ca94dc654970e134f8a19c2d25507798,
+        type: 3}
+      propertyPath: _actions.Array.data[1].TargetComponent
+      value: 
+      objectReference: {fileID: 477141092}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca94dc654970e134f8a19c2d25507798, type: 3}

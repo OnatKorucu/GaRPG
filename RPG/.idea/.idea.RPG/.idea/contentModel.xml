@@ -27,6 +27,9 @@
           <e p="PlayerInput.cs" t="Include" />
           <e p="Rotator.cs" t="Include" />
           <e p="Scripts.asmdef" t="Include" />
+          <e p="UI" t="Include">
+            <e p="Crosshair.cs" t="Include" />
+          </e>
         </e>
         <e p="Tests" t="Include">
           <e p="NewTestScript.cs" t="Include" />

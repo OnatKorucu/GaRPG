@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 public class Item : MonoBehaviour
 {
-    [SerializeField] private UseAction[] actions = new UseAction[0];
-    public UseAction[] Actions => actions;
+    [SerializeField] private UseAction[] _actions = new UseAction[0];
+    [SerializeField] private CrosshairMode _crosshairMode;
 
-    
     private bool _wasPickedUp;
+    
+    public UseAction[] Actions => _actions;
+    public CrosshairMode CrosshairMode => _crosshairMode;
+    
     
     private void OnTriggerEnter(Collider other)
     {
