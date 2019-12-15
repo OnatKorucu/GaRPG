@@ -4,12 +4,12 @@
 public class Item : MonoBehaviour
 {
     [SerializeField] private UseAction[] _actions = new UseAction[0];
-    [SerializeField] private CrosshairMode _crosshairMode;
+    [SerializeField] private CrosshairDefinition _crosshairDefinition;
 
     private bool _wasPickedUp;
     
     public UseAction[] Actions => _actions;
-    public CrosshairMode CrosshairMode => _crosshairMode;
+    public CrosshairDefinition CrosshairDefinition => _crosshairDefinition;
     
     
     private void OnTriggerEnter(Collider other)

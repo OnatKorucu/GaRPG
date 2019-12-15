@@ -6,8 +6,6 @@ using UnityEngine.XR;
 public class Crosshair : MonoBehaviour
 {
     [SerializeField] private Image _crosshairImage;
-    
-    [SerializeField] private Sprite _staffSprite;
     [SerializeField] private Sprite _invalidSprite;
     
     private Inventory _inventory;
@@ -35,23 +33,14 @@ public class Crosshair : MonoBehaviour
 
     private void HandleActiveItemChanged(Item item)
     {
-        switch (item.CrosshairMode)
+        if (item != null && item.CrosshairDefinition != null)
         {
-            case CrosshairMode.Staff: 
-                _crosshairImage.sprite = _staffSprite;
-                break;
-            
-            case CrosshairMode.Invalid: 
-                _crosshairImage.sprite = _invalidSprite;
-                break;
-                
+            _crosshairImage.sprite = item.CrosshairDefinition.sprite;
+            Debug.Log($"Crosshair detected {item.CrosshairDefinition}");
         }
-        Debug.Log($"Crosshair detected {item.CrosshairMode}");
+        else
+        {
+            _crosshairImage.sprite = _invalidSprite;
+        }
     }
-}
-
-public enum CrosshairMode
-{
-    Invalid, 
-    Staff
 }
