@@ -1,16 +1,30 @@
 using System.Collections;
 using NSubstitute;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 namespace a_player
 {
     public static class Helpers
     {
-        public static IEnumerator LoadTestScene()
+        public static IEnumerator LoadMovementTestScene()
         {
-            var operation = SceneManager.LoadSceneAsync("Tests");
+            var operation = SceneManager.LoadSceneAsync("MovementTests");
+            while (operation.isDone == false)
+            {
+                yield return null;
+            }
+        }
+        
+        public static IEnumerator LoadItemTestScene()
+        {
+            var operation = SceneManager.LoadSceneAsync("ItemTests");
+            while (operation.isDone == false)
+            {
+                yield return null;
+            }
+            
+            operation = SceneManager.LoadSceneAsync("UI", LoadSceneMode.Additive);
             while (operation.isDone == false)
             {
                 yield return null;
@@ -19,7 +33,7 @@ namespace a_player
 
         public static Player GetPlayer()
         {
-            Player player = GameObject.FindObjectOfType<Player>();
+            Player player = Object.FindObjectOfType<Player>();
             
             var testPlayerInput = Substitute.For<IPlayerInput>();
             player.PlayerInput = testPlayerInput;

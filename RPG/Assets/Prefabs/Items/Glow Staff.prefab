@@ -93,7 +93,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _actions: []
-  _crosshairDefinition: {fileID: 0}
+  _crosshairDefinition: {fileID: 11400000, guid: 6702d375c5e2277468fe15c9aacda217,
+    type: 2}
 --- !u!114 &1318570369211480318
 MonoBehaviour:
   m_ObjectHideFlags: 0

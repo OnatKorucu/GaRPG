@@ -4,7 +4,6 @@ public class CameraController : MonoBehaviour
 {
     private float _tilt;
 
-    // Update is called once per frame
     private void Update()
     {
         float mouseRotation = Input.GetAxis("Mouse Y");
