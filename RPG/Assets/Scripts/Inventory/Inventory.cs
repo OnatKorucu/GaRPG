@@ -5,14 +5,15 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public event Action<Item> ActiveItemChanged;
-    
+    public event Action<Item> ItemPickedUp;
+
     [SerializeField] private Transform _rightHand;
-    
+
     private List<Item> _items = new List<Item>();
     private Transform _itemRoot;
-    
+
     public Item ActiveItem { get; private set; }
-    
+
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class Inventory : MonoBehaviour
     {
         _items.Add(item);
         item.transform.SetParent(_itemRoot);
+        ItemPickedUp?.Invoke(item);
 
         Equip(item);
     }
@@ -31,7 +33,7 @@ public class Inventory : MonoBehaviour
     private void Equip(Item item)
     {
         Debug.Log($"Equipped Item {item.gameObject.name}");
-        
+
         item.transform.SetParent(_rightHand);
         item.transform.localPosition = Vector3.zero;
         item.transform.localRotation = Quaternion.identity;
@@ -39,5 +41,4 @@ public class Inventory : MonoBehaviour
         ActiveItem = item;
         ActiveItemChanged?.Invoke(ActiveItem);
     }
-    
 }

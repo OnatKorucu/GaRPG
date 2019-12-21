@@ -95,6 +95,7 @@ MonoBehaviour:
   _actions: []
   _crosshairDefinition: {fileID: 11400000, guid: b58b1bbdd6f628b419e2358f505001f3,
     type: 2}
+  _icon: {fileID: 0}
 --- !u!114 &1318570369211480318
 MonoBehaviour:
   m_ObjectHideFlags: 0
