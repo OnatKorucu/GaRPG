@@ -20,6 +20,12 @@ public class Hotbar : MonoBehaviour
         _slots = GetComponentsInChildren<Slot>();
     }
 
+    private void OnDisable()
+    {
+        _player.PlayerInput.HotkeyPressed -= HotkeyPressed;
+        _inventory.ItemPickedUp -= ItemPickedUp;
+    }
+
     private void HotkeyPressed(int index)
     {
         if (index >= _slots.Length || index < 0)

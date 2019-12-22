@@ -11,7 +11,7 @@ public class PlayerInput : IPlayerInput
     
     public event Action<int> HotkeyPressed;
 
-    public event Action<KeyCode> MoverSwitched;
+    public event Action MoveModeTogglePressed;
 
     public void Tick()
     {
@@ -35,17 +35,12 @@ public class PlayerInput : IPlayerInput
     
     private void CheckMoverSwitched()
     {
-        if (MoverSwitched == null)
+        if (MoveModeTogglePressed == null)
             return;
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.Minus))
         {
-            MoverSwitched(KeyCode.A);
+            MoveModeTogglePressed();
         }
-        else if (Input.GetKeyDown(KeyCode.B))
-        {
-            MoverSwitched(KeyCode.B);
-        }
-            
     }
 }

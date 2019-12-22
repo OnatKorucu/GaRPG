@@ -14,16 +14,16 @@ public class Player : MonoBehaviour
         _mover = new Mover(this);
         _rotator = new Rotator(this);
 
-        PlayerInput.MoverSwitched += HandleMoverSwitched;
+        PlayerInput.MoveModeTogglePressed += MoveModeTogglePressed;
     }
 
-    private void HandleMoverSwitched(KeyCode keyCode)
+    private void MoveModeTogglePressed()
     {
-        if (keyCode == KeyCode.A)
+        if (_mover is NavmeshMover)
         {
             _mover = new Mover(this);
         }
-        if (keyCode == KeyCode.B)
+        else
         {
             _mover = new NavmeshMover(this);
         }

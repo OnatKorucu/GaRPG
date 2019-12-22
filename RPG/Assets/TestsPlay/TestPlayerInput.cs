@@ -6,7 +6,7 @@ namespace a_player
     public class TestPlayerInput : IPlayerInput
     {
         public event Action<int> HotkeyPressed;
-        public event Action<KeyCode> MoverSwitched;
+        public event Action MoveModeTogglePressed;
         public void Tick()
         {
             // do nothing

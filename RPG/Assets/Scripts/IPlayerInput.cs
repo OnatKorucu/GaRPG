@@ -4,7 +4,7 @@ using UnityEngine;
 public interface IPlayerInput
 {
     event Action<int> HotkeyPressed;
-    event Action<KeyCode> MoverSwitched;
+    event Action MoveModeTogglePressed;
     
     void Tick();
     
