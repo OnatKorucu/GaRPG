@@ -30,13 +30,15 @@ public class Inventory : MonoBehaviour
         Equip(item);
     }
 
-    private void Equip(Item item)
+    public void Equip(Item item)
     {
         Debug.Log($"Equipped Item {item.gameObject.name}");
 
-        item.transform.SetParent(_rightHand);
-        item.transform.localPosition = Vector3.zero;
-        item.transform.localRotation = Quaternion.identity;
+        Transform itemTransform;
+        itemTransform = item.transform;
+        itemTransform.SetParent(_rightHand);
+        itemTransform.localPosition = Vector3.zero;
+        itemTransform.localRotation = Quaternion.identity;
 
         ActiveItem = item;
         ActiveItemChanged?.Invoke(ActiveItem);

@@ -13,20 +13,27 @@ public class Player : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
         _mover = new Mover(this);
         _rotator = new Rotator(this);
+
+        PlayerInput.MoverSwitched += HandleMoverSwitched;
+    }
+
+    private void HandleMoverSwitched(KeyCode keyCode)
+    {
+        if (keyCode == KeyCode.A)
+        {
+            _mover = new Mover(this);
+        }
+        if (keyCode == KeyCode.B)
+        {
+            _mover = new NavmeshMover(this);
+        }
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            _mover = new Mover(this);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            _mover = new NavmeshMover(this);
-        }
-        
         _mover.Tick();
         _rotator.Tick();
+
+        PlayerInput.Tick();
     }
 }
