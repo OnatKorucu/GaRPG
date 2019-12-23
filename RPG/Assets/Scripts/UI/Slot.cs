@@ -1,10 +1,13 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Slot : MonoBehaviour
 {
-    [SerializeField] private Image _icon;
+    [SerializeField] private Image _iconImage;
+    public Image IconImageImage => _iconImage; 
+    
     private TMP_Text _text;
     public Item Item { get; private set; }
     
@@ -13,7 +16,7 @@ public class Slot : MonoBehaviour
     public void SetItem(Item item)
     {
         Item = item;
-        _icon.sprite = item.Icon;
+        _iconImage.sprite = item.Icon;
     }
 
     private void OnValidate()

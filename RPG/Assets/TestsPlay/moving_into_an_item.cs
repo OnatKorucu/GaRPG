@@ -9,42 +9,64 @@ namespace a_player
 {
     public class moving_into_an_item
     {
+        private Item _item;
+        private Player _player;
+
+        [UnitySetUp]
+        public IEnumerator init()
+        {
+            yield return Helpers.LoadItemTestScene();
+
+            _player = Helpers.GetPlayer();
+            _item = Object.FindObjectOfType<Item>();
+        } 
+        
+        
         [UnityTest]
         public IEnumerator picks_up_and_equips_item()
         {
-            yield return Helpers.LoadMovementTestScene();
-
-            Player player = Helpers.GetPlayer();
-            player.PlayerInput.Vertical.Returns(1f);
+            _player.PlayerInput.Vertical.Returns(1f);
             
-            Item item = Object.FindObjectOfType<Item>();
-            Assert.AreNotSame(item, player.GetComponent<Inventory>().ActiveItem);
+            Assert.AreNotSame(_item, _player.GetComponent<Inventory>().ActiveItem);
             
             yield return new WaitForSeconds(2f);
             
-            Assert.AreSame(item, player.GetComponent<Inventory>().ActiveItem);
+            Assert.AreSame(_item, _player.GetComponent<Inventory>().ActiveItem);
         }
         
         [UnityTest]
         public IEnumerator changes_crosshair_to_item_crosshair()
         {
-            yield return Helpers.LoadItemTestScene();
-
-            Player player = Helpers.GetPlayer();
             Crosshair crosshair = Object.FindObjectOfType<Crosshair>();
+            
+            Assert.AreNotSame(_item.CrosshairDefinition.sprite, crosshair.GetComponent<Image>().sprite);
+
+            // player.PlayerInput.Vertical.Returns(1f);
+            // do not move player but do move item for testing purposes
+            Vector3 playerPos = _player.transform.position;
+            Vector3 playerPosPlus1 = playerPos + Vector3.up; // make item and player collide by moving item instead of player
+            _item.transform.position = playerPosPlus1;
+            yield return new WaitForFixedUpdate(); // just wait for physics for proper collision processing
+            
+            Assert.AreEqual(_item.CrosshairDefinition.sprite, crosshair.GetComponent<Image>().sprite);
+        }
+        
+        [UnityTest]
+        public IEnumerator changes_slot_1_icon_to_match_item_icon()
+        {
+            Hotbar hotbar = Object.FindObjectOfType<Hotbar>();
+            Slot slot1 = hotbar.GetComponentInChildren<Slot>();
+            
+            Assert.AreNotSame(_item.Icon, slot1.IconImageImage.sprite); 
             
             // player.PlayerInput.Vertical.Returns(1f);
             // do not move player but do move item for testing purposes
+            Vector3 playerPos = _player.transform.position;
+            Vector3 playerPosPlus1 = playerPos + Vector3.up; // make item and player collide by moving item instead of player
+            _item.transform.position = playerPosPlus1;
+            yield return new WaitForFixedUpdate(); // just wait for physics for proper collision processing
             
-            Item item = Object.FindObjectOfType<Item>();
-            Assert.AreNotSame(item.CrosshairDefinition.sprite, crosshair.GetComponent<Image>().sprite);
-
-            Vector3 playerPos = player.transform.position;
-            Vector3 playerPosPlus1 = playerPos + Vector3.up; // make item and player collide
-            item.transform.position = playerPosPlus1;
-            yield return null; // just wait for end of frame for proper processing, as player does not need to move there is no need to really wait otherwise
-            
-            Assert.AreEqual(item.CrosshairDefinition.sprite, crosshair.GetComponent<Image>().sprite);
+            Assert.AreEqual(_item.Icon, slot1.IconImageImage.sprite);
         }
     }
 }

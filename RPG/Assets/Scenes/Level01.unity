@@ -391,42 +391,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5569029402146188863, guid: cb0b6cdcb4e815947a7cf76ead6196c0,
-        type: 3}
-      propertyPath: _actions.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5569029402146188863, guid: cb0b6cdcb4e815947a7cf76ead6196c0,
-        type: 3}
-      propertyPath: _crosshairDefinition
-      value: 
-      objectReference: {fileID: 11400000, guid: 6702d375c5e2277468fe15c9aacda217,
-        type: 2}
-    - target: {fileID: 5569029402146188863, guid: cb0b6cdcb4e815947a7cf76ead6196c0,
-        type: 3}
-      propertyPath: _actions.Array.data[0].TargetComponent
-      value: 
-      objectReference: {fileID: 1158527823}
-    - target: {fileID: 5569029402146188863, guid: cb0b6cdcb4e815947a7cf76ead6196c0,
-        type: 3}
-      propertyPath: _icon
-      value: 
-      objectReference: {fileID: 21300000, guid: e5728e4faf6fcad439b286610cc040c8,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb0b6cdcb4e815947a7cf76ead6196c0, type: 3}
---- !u!114 &1158527823 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1580286318, guid: cb0b6cdcb4e815947a7cf76ead6196c0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1158527822}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6c421f58cc148b9860032c81286f564, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1236522810
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,61 +652,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5569029402146188863, guid: 00f74fccefd2fd94c9cd4db51b05189c,
-        type: 3}
-      propertyPath: _actions.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5569029402146188863, guid: 00f74fccefd2fd94c9cd4db51b05189c,
-        type: 3}
-      propertyPath: _crosshairDefinition
-      value: 
-      objectReference: {fileID: 11400000, guid: b58b1bbdd6f628b419e2358f505001f3,
-        type: 2}
-    - target: {fileID: 5569029402146188863, guid: 00f74fccefd2fd94c9cd4db51b05189c,
-        type: 3}
-      propertyPath: _actions.Array.data[0].TargetComponent
-      value: 
-      objectReference: {fileID: 1798093663}
-    - target: {fileID: 5569029402146188863, guid: 00f74fccefd2fd94c9cd4db51b05189c,
-        type: 3}
-      propertyPath: _actions.Array.data[1].TargetComponent
-      value: 
-      objectReference: {fileID: 1798093664}
-    - target: {fileID: 5569029402146188863, guid: 00f74fccefd2fd94c9cd4db51b05189c,
-        type: 3}
-      propertyPath: _actions.Array.data[1].UseMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5569029402146188863, guid: 00f74fccefd2fd94c9cd4db51b05189c,
-        type: 3}
-      propertyPath: _icon
-      value: 
-      objectReference: {fileID: 21300000, guid: 810faa828d4c38146b132fb03d8d87bb,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00f74fccefd2fd94c9cd4db51b05189c, type: 3}
---- !u!114 &1798093663 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1580286318, guid: 00f74fccefd2fd94c9cd4db51b05189c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1798093662}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6c421f58cc148b9860032c81286f564, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1798093664 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1318570369211480318, guid: 00f74fccefd2fd94c9cd4db51b05189c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1798093662}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ded641643964407aa0c71265c4ea2ca2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
