@@ -10,8 +10,18 @@ public class Item : MonoBehaviour
  
     private bool _wasPickedUp;
     
-    public UseAction[] Actions => _actions;
-    public CrosshairDefinition CrosshairDefinition => _crosshairDefinition;
+    public UseAction[] Actions
+    {
+        get => _actions;
+        set => _actions = value;
+    }
+
+    public CrosshairDefinition CrosshairDefinition
+    {
+        get => _crosshairDefinition;
+        set => _crosshairDefinition = value;
+    }
+
     public Sprite Icon => _icon;
 
 
