@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ public class ItemEditor : Editor
 
         DrawCrosshair(item);
 
-        DrawActions();
+        DrawActions(item);
 
         // base.OnInspectorGUI();
     }
@@ -65,7 +66,7 @@ public class ItemEditor : Editor
         EditorGUILayout.EndHorizontal();
     }
 
-    private void DrawActions()
+    private void DrawActions(Item item)
     {
         using (var actionsProperty = serializedObject.FindProperty("_actions"))
         {
@@ -90,11 +91,37 @@ public class ItemEditor : Editor
                         GUILayout.Width(80));
 
                     EditorGUILayout.PropertyField(targetComponentProperty, GUIContent.none, false);
-
                     serializedObject.ApplyModifiedProperties();
                 }
 
                 EditorGUILayout.EndHorizontal();
+            }
+
+            if (GUILayout.Button("Auto-assign Actions"))
+            {
+                List<ItemComponent> assignedItemComponnts = new List<ItemComponent>();
+                for (int i = 0; i < actionsProperty.arraySize; i++)
+                {
+                    var action = actionsProperty.GetArrayElementAtIndex(i);
+                    if (action != null)
+                    {
+                        var targetComponentProperty = action.FindPropertyRelative("TargetComponent");
+                        var assignedItemComponent = targetComponentProperty.objectReferenceValue as ItemComponent;
+                        assignedItemComponnts.Add(assignedItemComponent);
+                    }
+                }
+
+                foreach (var itemComponent in item.GetComponentsInChildren<ItemComponent>())
+                {
+                    if(assignedItemComponnts.Contains(itemComponent))
+                        continue;
+                    
+                    actionsProperty.InsertArrayElementAtIndex(actionsProperty.arraySize);
+                    var action = actionsProperty.GetArrayElementAtIndex(actionsProperty.arraySize - 1);
+                    var targetComponentProperty = action.FindPropertyRelative("TargetComponent");
+                    targetComponentProperty.objectReferenceValue = itemComponent;
+                    serializedObject.ApplyModifiedProperties();
+                }
             }
         }
     }
