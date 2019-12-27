@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Entity : MonoBehaviour, ITakeHits
 {
     [SerializeField] private int _maxHealth = 5;
     
     public int Health { get; private set; }
+    public event Action OnDied;
 
     private void OnEnable()
     {
@@ -26,11 +28,14 @@ public class Entity : MonoBehaviour, ITakeHits
 
     private void HandleNonLethalHit()
     {
-        Debug.Log("Tppk non-lethal damage");
+        Debug.Log("Took non-lethal damage");
     }
 
     private void Die()
     {
         Debug.Log("Died...");
+        OnDied?.Invoke();
     }
+
+    
 }
