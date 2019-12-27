@@ -126,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 0.2
   _range: 20
+  _damage: 1
 --- !u!1 &7833584298883815613
 GameObject:
   m_ObjectHideFlags: 0

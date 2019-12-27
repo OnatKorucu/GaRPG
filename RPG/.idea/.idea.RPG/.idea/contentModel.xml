@@ -7,6 +7,45 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Art" t="Include">
+          <e p="Animation" t="Include">
+            <e p="RPG Character Animation Pack" t="Include">
+              <e p="Code" t="Include">
+                <e p="CameraController.cs" t="Include" />
+                <e p="GUIControls.cs" t="Include" />
+                <e p="IKHands.cs" t="Include" />
+                <e p="PerfectLookAt" t="Include">
+                  <e p="FABRIKSolver.cs" t="Include" />
+                  <e p="PerfectLookAt.cs" t="Include" />
+                  <e p="PerfectLookAtData.cs" t="Include" />
+                  <e p="PerfectLookAtLegStabilizer.cs" t="Include" />
+                </e>
+                <e p="RPGCharacterController.cs" t="Include" />
+                <e p="RPGCharacterInputController.cs" t="Include" />
+                <e p="RPGCharacterMovementController.cs" t="Include" />
+                <e p="RPGCharacterWeaponController.cs" t="Include" />
+              </e>
+              <e p="SuperCharacterController" t="Include">
+                <e p="Code" t="Include">
+                  <e p="Gravity.cs" t="Include" />
+                  <e p="SimpleStateMachine.cs" t="Include" />
+                  <e p="SuperCharacterController" t="Include">
+                    <e p="Core" t="Include">
+                      <e p="BruteForceMesh.cs" t="Include" />
+                      <e p="BSPTree.cs" t="Include" />
+                      <e p="SuperCharacterController.cs" t="Include" />
+                      <e p="SuperCollider.cs" t="Include" />
+                      <e p="SuperCollisionType.cs" t="Include" />
+                      <e p="SuperMath.cs" t="Include" />
+                      <e p="SuperStateMachine.cs" t="Include" />
+                    </e>
+                    <e p="DebugDraw.cs" t="Include" />
+                    <e p="Math3d.cs" t="Include" />
+                    <e p="README.txt" t="Include" />
+                  </e>
+                </e>
+              </e>
+            </e>
+          </e>
           <e p="Synty" t="Include">
             <e p="PolygonFantasyHeroCharacters" t="Include">
               <e p="Scripts" t="Include">
@@ -21,6 +60,10 @@
         <e p="Scripts" t="Include">
           <e p="Camera" t="Include">
             <e p="CameraController.cs" t="Include" />
+          </e>
+          <e p="Entities" t="Include">
+            <e p="Entity.cs" t="Include" />
+            <e p="ITakeHits.cs" t="Include" />
           </e>
           <e p="IMover.cs" t="Include" />
           <e p="Inventory" t="Include">
