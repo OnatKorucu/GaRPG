@@ -4,7 +4,7 @@ using UnityEngine;
 public class Entity : MonoBehaviour, ITakeHits
 {
     [SerializeField] private int _maxHealth = 5;
-    
+
     public int Health { get; private set; }
     public event Action OnDied;
 
@@ -36,6 +36,4 @@ public class Entity : MonoBehaviour, ITakeHits
         Debug.Log("Died...");
         OnDied?.Invoke();
     }
-
-    
 }

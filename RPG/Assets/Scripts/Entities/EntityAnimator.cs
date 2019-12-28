@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Entity))]
 public class EntityAnimator : MonoBehaviour
@@ -17,5 +15,4 @@ public class EntityAnimator : MonoBehaviour
 
         _entity.OnDied += () => _animator.SetBool(Die, true);
     }
-
 }
