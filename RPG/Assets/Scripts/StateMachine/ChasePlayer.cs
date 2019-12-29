@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.AI;
 
 public class ChasePlayer : IState
@@ -11,6 +12,7 @@ public class ChasePlayer : IState
     
     public void Tick()
     {
+        Debug.Log("Chasing...");
     }
 
     public void OnEnter()
