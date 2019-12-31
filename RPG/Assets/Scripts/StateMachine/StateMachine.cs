@@ -8,6 +8,7 @@ public class StateMachine
     
     private List<IState> _states = new List<IState>();
     private IState _currentState;
+    public object CurrentState => _currentState;
 
     public void Add(IState state)
     {

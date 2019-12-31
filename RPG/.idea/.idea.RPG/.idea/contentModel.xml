@@ -102,7 +102,7 @@
           </e>
         </e>
         <e p="Tests" t="Include">
-          <e p="NewTestScript.cs" t="Include" />
+          <e p="base_state_machine.cs" t="Include" />
           <e p="Tests.asmdef" t="Include" />
         </e>
         <e p="TestsPlay" t="Include">
