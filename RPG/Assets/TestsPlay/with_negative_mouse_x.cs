@@ -11,7 +11,7 @@ namespace a_player
         [UnityTest]
         public IEnumerator turns_left()
         {
-            yield return Helpers.LoadMovementTestScene();
+            yield return Helpers.LoadMovementTestsScene();
 
             Player player = Helpers.GetPlayer();
             player.PlayerInput.MouseX.Returns(-1f);
@@ -30,7 +30,7 @@ namespace a_player
         [UnityTest]
         public IEnumerator turns_right()
         {
-            yield return Helpers.LoadMovementTestScene();
+            yield return Helpers.LoadMovementTestsScene();
 
             Player player = Helpers.GetPlayer();
             player.PlayerInput.MouseX.Returns(1f);

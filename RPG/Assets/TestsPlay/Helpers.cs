@@ -7,7 +7,7 @@ namespace a_player
 {
     public static class Helpers
     {
-        public static IEnumerator LoadMovementTestScene()
+        public static IEnumerator LoadMovementTestsScene()
         {
             var operation = SceneManager.LoadSceneAsync("MovementTests");
             while (operation.isDone == false)
@@ -16,7 +16,7 @@ namespace a_player
             }
         }
         
-        public static IEnumerator LoadItemTestScene()
+        public static IEnumerator LoadItemTestsScene()
         {
             var operation = SceneManager.LoadSceneAsync("ItemTests");
             while (operation.isDone == false)
@@ -25,6 +25,15 @@ namespace a_player
             }
             
             operation = SceneManager.LoadSceneAsync("UI", LoadSceneMode.Additive);
+            while (operation.isDone == false)
+            {
+                yield return null;
+            }
+        }
+        
+        public static IEnumerator LoadEntityStateMachineTestsScene()
+        {
+            var operation = SceneManager.LoadSceneAsync("EntityStateMachineTests");
             while (operation.isDone == false)
             {
                 yield return null;

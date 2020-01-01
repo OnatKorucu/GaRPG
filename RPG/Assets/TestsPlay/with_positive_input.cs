@@ -11,7 +11,7 @@ namespace a_player
         [UnityTest]
         public IEnumerator moves_forward_on_vertical()
         {
-            yield return Helpers.LoadMovementTestScene();
+            yield return Helpers.LoadMovementTestsScene();
             
             Player player = Helpers.GetPlayer();
             player.PlayerInput.Vertical.Returns(1f);
@@ -30,7 +30,7 @@ namespace a_player
         [UnityTest]
         public IEnumerator moves_backward_on_vertical()
         {
-            yield return Helpers.LoadMovementTestScene();
+            yield return Helpers.LoadMovementTestsScene();
             
             Player player = Helpers.GetPlayer();
             player.PlayerInput.Vertical.Returns(-1f);

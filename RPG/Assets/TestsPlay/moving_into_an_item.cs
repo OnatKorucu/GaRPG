@@ -15,7 +15,7 @@ namespace a_player
         [UnitySetUp]
         public IEnumerator init()
         {
-            yield return Helpers.LoadItemTestScene();
+            yield return Helpers.LoadItemTestsScene();
 
             _player = Helpers.GetPlayer();
             _item = Object.FindObjectOfType<Item>();
