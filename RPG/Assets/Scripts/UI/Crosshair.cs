@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class Crosshair : MonoBehaviour
 {
-    [SerializeField] private Image _crosshairImage;
-    [SerializeField] private Sprite _invalidSprite;
+    [SerializeField] private Image _crosshairImage = null;
+    [SerializeField] private Sprite _invalidSprite = null;
     
     private Inventory _inventory;
     

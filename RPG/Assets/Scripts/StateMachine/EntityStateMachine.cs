@@ -5,23 +5,21 @@ using UnityEngine.AI;
 public class EntityStateMachine : MonoBehaviour
 {
     private StateMachine _stateMachine;
-    private NavMeshAgent _navMeshAgent;
-    private Player _player;
-    private Entity _entity;
+
     public Type CurrentStateType => _stateMachine.CurrentState.GetType();
 
     private void Awake()
     {
-        _player = FindObjectOfType<Player>();
-        _navMeshAgent = GetComponent<NavMeshAgent>();
-        _entity = GetComponent<Entity>();
+        Player _player = FindObjectOfType<Player>();
+        NavMeshAgent _navMeshAgent = GetComponent<NavMeshAgent>();
+        Entity _entity = GetComponent<Entity>();
         
         _stateMachine = new StateMachine();
         
         Idle idle = new Idle();
-        ChasePlayer chasePlayer = new ChasePlayer(_navMeshAgent);
+        ChasePlayer chasePlayer = new ChasePlayer(_navMeshAgent, _player);
         Attack attack = new Attack();
-        Dead dead = new Dead();
+        Dead dead = new Dead(_entity);
         
         _stateMachine.AddTransition(
             idle, 

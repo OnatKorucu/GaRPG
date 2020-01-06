@@ -4,9 +4,9 @@
 public class Item : MonoBehaviour
 {
     [SerializeField] private UseAction[] _actions = new UseAction[0];
-    [SerializeField] private CrosshairDefinition _crosshairDefinition;
+    [SerializeField] private CrosshairDefinition _crosshairDefinition = null;
 
-    [SerializeField] private Sprite _icon;
+    [SerializeField] private Sprite _icon = null;
  
     private bool _wasPickedUp;
     

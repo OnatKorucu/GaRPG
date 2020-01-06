@@ -7,13 +7,12 @@ public class Inventory : MonoBehaviour
     public event Action<Item> ActiveItemChanged;
     public event Action<Item> ItemPickedUp;
 
-    [SerializeField] private Transform _rightHand;
+    [SerializeField] private Transform _rightHand = null;
 
     private List<Item> _items = new List<Item>();
     private Transform _itemRoot;
 
     public Item ActiveItem { get; private set; }
-
 
     private void Awake()
     {

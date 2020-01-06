@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Slot : MonoBehaviour
 {
-    [SerializeField] private Image _iconImage;
+    [SerializeField] private Image _iconImage = null;
     public Image IconImageImage => _iconImage; 
     
     private TMP_Text _text;
