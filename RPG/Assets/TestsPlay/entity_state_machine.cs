@@ -33,5 +33,20 @@ namespace state_machine
             yield return new WaitForEndOfFrame();
             Assert.AreEqual(typeof(ChasePlayer), entityStateMachine.CurrentStateType);
         }
+        
+        [UnityTest]
+        public IEnumerator switches_to_dead_when_health_reaches_zero()
+        {
+            yield return Helpers.LoadEntityStateMachineTestsScene();
+            
+            EntityStateMachine entityStateMachine = GameObject.FindObjectOfType<EntityStateMachine>();
+            Entity entity = entityStateMachine.GetComponent<Entity>();
+            
+            Assert.AreEqual(typeof(Idle), entityStateMachine.CurrentStateType);
+            
+            entity.TakeHit(entity.Health);
+            yield return new WaitForEndOfFrame();
+            Assert.AreEqual(typeof(Dead), entityStateMachine.CurrentStateType);
+        }
     }
 }
