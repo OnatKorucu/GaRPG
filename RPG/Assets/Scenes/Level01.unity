@@ -276,6 +276,12 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 289fb7258a5523a43b4761086242bc0c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be05525325fdeb94d86bcd45c734c1e5, type: 3}
+--- !u!4 &80076002 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4483767669499260, guid: be05525325fdeb94d86bcd45c734c1e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 80076001}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &103635902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1917,6 +1923,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1164522476}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1170285698 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5569029402146188863, guid: cb0b6cdcb4e815947a7cf76ead6196c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1158527822}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b7ec892e9bc204cb298b5e9bf08267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1190506112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2486,6 +2504,34 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1638993907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638993901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d714806ba5cc4f66900618e44bfe604e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemPrefabs:
+  - {fileID: 5569029402146188863, guid: 00f74fccefd2fd94c9cd4db51b05189c, type: 3}
+  - {fileID: 1170285698}
+--- !u!114 &1638993908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638993901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: decdda12dcdc9734a858ec616d7e2171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rightHand: {fileID: 80076002}
 --- !u!1001 &1740167862
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,9 +7,9 @@ public class Item : MonoBehaviour
     [SerializeField] private CrosshairDefinition _crosshairDefinition = null;
 
     [SerializeField] private Sprite _icon = null;
- 
-    private bool _wasPickedUp;
-    
+
+    public bool WasPickedUp { get; set; }
+
     public UseAction[] Actions
     {
         get => _actions;
@@ -27,14 +27,13 @@ public class Item : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (_wasPickedUp)
+        if (WasPickedUp)
             return;
-        
+
         var inventory = other.GetComponent<Inventory>();
         if (inventory != null)
         {
             inventory.Pickup(this);
-            _wasPickedUp = true;
         }
     }
 
