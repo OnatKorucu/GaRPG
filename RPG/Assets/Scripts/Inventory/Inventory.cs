@@ -10,6 +10,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Transform _rightHand = null;
 
     private List<Item> _items = new List<Item>();
+    public List<Item> Items => _items;
+    
     private Transform _itemRoot;
 
     public Item ActiveItem { get; private set; }
