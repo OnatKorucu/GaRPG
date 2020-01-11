@@ -26,9 +26,10 @@ public class NpcLoot : MonoBehaviour
         }
     }
     
-    private void HandleEntityStateChanged(IState state)
+    private void HandleEntityStateChanged(IState state, IState previousState)
     {
-        Debug.Log($"HandleEntityStateChanged {state.GetType()}");
+        Debug.Log($"HandleEntityStateChanged to {state.GetType()} from {previousState.GetType()}");
+        
         if (state is Dead)
         {
             DropLoot();

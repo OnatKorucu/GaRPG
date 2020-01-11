@@ -8,8 +8,10 @@ public class StateMachine
     private List<StateTransition> _anyStateTransitions = new List<StateTransition>();
 
     private IState _currentState;
+    private IState _previousState;
+    
     public IState CurrentState => _currentState;
-    public event Action<IState> OnStateChanged;
+    public event Action<IState, IState> OnStateChanged;
 
     public void AddTransition(IState from, IState to, Func<bool> condition)
     {
@@ -28,13 +30,14 @@ public class StateMachine
         if (_currentState == state)
             return;
 
+        _previousState = _currentState;
         _currentState?.OnExit();
 
         _currentState = state;
         Debug.Log($"Changed state to {state}");
         _currentState.OnEnter();
         
-        OnStateChanged?.Invoke(_currentState);
+        OnStateChanged?.Invoke(_currentState, _previousState);
     }
 
     public void Tick()

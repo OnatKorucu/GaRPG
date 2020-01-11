@@ -7,7 +7,7 @@ public class EntityStateMachine : MonoBehaviour
     private StateMachine _stateMachine;
 
     public Type CurrentStateType => _stateMachine.CurrentState.GetType();
-    public event Action<IState> OnEntityStateChanged;
+    public event Action<IState, IState> OnEntityStateChanged;
     
 
     private void Awake()
@@ -17,7 +17,7 @@ public class EntityStateMachine : MonoBehaviour
         Entity _entity = GetComponent<Entity>();
         
         _stateMachine = new StateMachine();
-        _stateMachine.OnStateChanged += state => OnEntityStateChanged?.Invoke(state);
+        _stateMachine.OnStateChanged += (state, previousState) => OnEntityStateChanged?.Invoke(state, previousState);
         
         Idle idle = new Idle();
         ChasePlayer chasePlayer = new ChasePlayer(_navMeshAgent, _player);
