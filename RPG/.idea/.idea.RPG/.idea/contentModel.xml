@@ -46,6 +46,36 @@
               </e>
             </e>
           </e>
+          <e p="Particles" t="Include">
+            <e p="Polygon Arsenal" t="Include">
+              <e p="Demo" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="PolygonBeamScript.cs" t="Include" />
+                  <e p="PolygonButtonScript.cs" t="Include" />
+                  <e p="PolygonFireProjectile.cs" t="Include" />
+                  <e p="PolygonLoopScript.cs" t="Include" />
+                  <e p="PolygonOrbit.cs" t="Include" />
+                  <e p="PolygonProjectileScript.cs" t="Include" />
+                  <e p="PolygonSceneSelect.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Polygon Arsenal - Readme.txt" t="Include" />
+              <e p="Scripts" t="Include">
+                <e p="PolygonLightFade.cs" t="Include" />
+                <e p="PolygonLightFlicker.cs" t="Include" />
+                <e p="PolygonRotation.cs" t="Include" />
+                <e p="PolygonSoundSpawn.cs" t="Include" />
+              </e>
+              <e p="Shaders" t="Include">
+                <e p="Standard" t="Include">
+                  <e p="PolyLitSurface.shader" t="Include" />
+                  <e p="PolyRimLightSelective.shader" t="Include" />
+                  <e p="PolyRimLightSolid.shader" t="Include" />
+                  <e p="PolyRimLightTransparent.shader" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
           <e p="Synty" t="Include">
             <e p="PolygonFantasyHeroCharacters" t="Include">
               <e p="Scripts" t="Include">
@@ -74,6 +104,7 @@
             <e p="ItemComponent.cs" t="Include" />
             <e p="ItemLogger.cs" t="Include" />
             <e p="ItemRaycaster.cs" t="Include" />
+            <e p="LootItemHolder.cs" t="Include" />
             <e p="UseAction.cs" t="Include" />
             <e p="UseMode.cs" t="Include" />
           </e>
