@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LootItemHolder : MonoBehaviour
 {
-    [SerializeField] private Transform _itemTransform;
-    [SerializeField] private float _rotationSpeed;
+    [SerializeField] private Transform _itemTransform = null;
+    [SerializeField] private float _rotationSpeed = 0f;
 
     public void TakeItem(Item item)
     {

@@ -20,4 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EntityStateMachineTests.unity
     guid: 1d738f5f606a14c499ec7fe3412d4f5b
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: dbad77bdcc1d2084c880d75ca70119fa,
+      type: 2}
