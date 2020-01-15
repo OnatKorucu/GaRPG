@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 public class Item : MonoBehaviour
@@ -8,6 +9,8 @@ public class Item : MonoBehaviour
 
     [SerializeField] private Sprite _icon = null;
 
+    public event Action OnPickedUp;
+    
     public bool WasPickedUp { get; set; }
 
     public UseAction[] Actions
@@ -34,6 +37,7 @@ public class Item : MonoBehaviour
         if (inventory != null)
         {
             inventory.Pickup(this);
+            OnPickedUp?.Invoke();
         }
     }
 
