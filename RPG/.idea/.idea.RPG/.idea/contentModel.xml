@@ -110,6 +110,7 @@
           </e>
           <e p="IPlayerInput.cs" t="Include" />
           <e p="ItemEditor.cs" t="Include" />
+          <e p="LootSystem.cs" t="Include" />
           <e p="Mover.cs" t="Include" />
           <e p="NavmeshMover.cs" t="Include" />
           <e p="NpcLoot.cs" t="Include" />
