@@ -182,6 +182,7 @@
             <e p="ChasePlayer.cs" t="Include" />
             <e p="Dead.cs" t="Include" />
             <e p="EntityStateMachine.cs" t="Include" />
+            <e p="GameStateMachine.cs" t="Include" />
             <e p="Idle.cs" t="Include" />
             <e p="IState.cs" t="Include" />
             <e p="StateMachine.cs" t="Include" />
