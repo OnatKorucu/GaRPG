@@ -24,15 +24,16 @@ public class GameStateMachine : MonoBehaviour
         _stateMachine = new StateMachine();
         
         Menu menu = new Menu();
-        LoadLevel loadLevel = new LoadLevel();
+        Load load = new Load();
         Pause pause = new Pause();
         Play play = new Play();
         
-        _stateMachine.SetState(loadLevel);
+        _stateMachine.SetState(load);
         
-        _stateMachine.AddTransition(loadLevel, play, loadLevel.Finished);
+        _stateMachine.AddTransition(load, play, load.Finished);
         _stateMachine.AddTransition(play, pause, () => Input.GetKeyDown(KeyCode.Escape));
         _stateMachine.AddTransition(pause, play, () => Input.GetKeyDown(KeyCode.Escape));
+        _stateMachine.AddTransition(pause, load, () => RestartButton.Pressed);
     }
 
     private void Update()
@@ -78,7 +79,7 @@ public class Play : IState
     public void OnExit() { }
 }
 
-public class LoadLevel : IState
+public class Load : IState
 {
     public bool Finished() => _operations.TrueForAll(t => t.isDone);
     private List<AsyncOperation> _operations = new List<AsyncOperation>();
