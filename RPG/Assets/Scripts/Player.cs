@@ -31,6 +31,9 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (Pause.Active)
+            return;
+        
         _mover.Tick();
         _rotator.Tick();
 
