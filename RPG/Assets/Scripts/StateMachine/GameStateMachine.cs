@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class GameStateMachine : MonoBehaviour
 {
+    public static event Action<IState, IState> OnGameStateChanged;
+    
     private static bool _initialized;
     private StateMachine _stateMachine;
 
@@ -22,6 +24,7 @@ public class GameStateMachine : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         
         _stateMachine = new StateMachine();
+        _stateMachine.OnStateChanged += (state, previousState) => OnGameStateChanged?.Invoke(state, previousState);
         
         Menu menu = new Menu();
         Load load = new Load();
