@@ -204,6 +204,7 @@
         </e>
         <e p="TestsPlay" t="Include">
           <e p="entity_state_machine.cs" t="Include" />
+          <e p="game_state_machine.cs" t="Include" />
           <e p="Helpers.cs" t="Include" />
           <e p="moving_into_an_item.cs" t="Include" />
           <e p="TestPlayerInput.cs" t="Include" />

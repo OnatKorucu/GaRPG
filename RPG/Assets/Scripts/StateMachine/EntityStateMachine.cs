@@ -4,11 +4,10 @@ using UnityEngine.AI;
 
 public class EntityStateMachine : MonoBehaviour
 {
-    private StateMachine _stateMachine;
-
     public Type CurrentStateType => _stateMachine.CurrentState.GetType();
     public event Action<IState, IState> OnEntityStateChanged;
     
+    private StateMachine _stateMachine;
 
     private void Awake()
     {

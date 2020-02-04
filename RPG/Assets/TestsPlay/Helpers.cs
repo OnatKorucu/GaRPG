@@ -39,6 +39,15 @@ namespace a_player
                 yield return null;
             }
         }
+        
+        public static IEnumerator LoadMenuScene()
+        {
+            var operation = SceneManager.LoadSceneAsync("Menu");
+            while (operation.isDone == false)
+            {
+                yield return null;
+            }
+        }
 
         public static Player GetPlayer()
         {

@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class GameStateMachine : MonoBehaviour
 {
+    public Type CurrentStateType => _stateMachine.CurrentState.GetType();
+    
     public static event Action<IState, IState> OnGameStateChanged;
     
     private static bool _initialized;

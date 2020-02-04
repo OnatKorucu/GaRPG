@@ -43,6 +43,7 @@ namespace state_machine
             Entity entity = entityStateMachine.GetComponent<Entity>();
             
             Assert.AreEqual(typeof(Idle), entityStateMachine.CurrentStateType);
+            yield return new WaitForEndOfFrame();
             
             entity.TakeHit(entity.Health);
             yield return new WaitForEndOfFrame();
