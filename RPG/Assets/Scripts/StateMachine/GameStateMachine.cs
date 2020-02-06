@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 
 public class GameStateMachine : MonoBehaviour
 {
     public Type CurrentStateType => _stateMachine.CurrentState.GetType();
-    
     public static event Action<IState, IState> OnGameStateChanged;
     
     private static bool _initialized;
@@ -33,13 +30,13 @@ public class GameStateMachine : MonoBehaviour
         Pause pause = new Pause();
         Play play = new Play();
         
-        _stateMachine.SetState(menu);
-        
         _stateMachine.AddTransition(menu, load, () => PlayButton.LevelToLoad != null);
         _stateMachine.AddTransition(load, play, load.Finished);
         _stateMachine.AddTransition(play, pause, () => Input.GetKeyDown(KeyCode.Escape));
         _stateMachine.AddTransition(pause, play, () => Input.GetKeyDown(KeyCode.Escape));
         _stateMachine.AddTransition(pause, menu, () => RestartButton.Pressed);
+        
+        _stateMachine.SetState(menu);
     }
 
     private void Update()

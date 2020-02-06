@@ -23,33 +23,27 @@ public class EntityStateMachine : MonoBehaviour
         Attack attack = new Attack();
         Dead dead = new Dead(_entity);
         
-        _stateMachine.AddTransition(
-            idle, 
-            chasePlayer, 
+        _stateMachine.AddTransition(idle, chasePlayer, 
             () => DistanceFlat(_navMeshAgent.transform.position, _player.transform.position) < 5f
                   );
         
-        _stateMachine.AddTransition(
-            chasePlayer, 
-            attack, 
+        _stateMachine.AddTransition(chasePlayer, attack, 
             () => DistanceFlat(_navMeshAgent.transform.position, _player.transform.position) < 2f
                   );
         
-        _stateMachine.AddAnyTransition(
-            dead, 
-            () => _entity.Health <= 0
+        _stateMachine.AddAnyTransition(dead, () => _entity.Health <= 0
                   );
         
         _stateMachine.SetState(idle);
     }
 
-    private float DistanceFlat(Vector3 source, Vector3 destination)
-    {
-        return Vector3.Distance(new Vector3(source.x, 0, source.z), new Vector3(destination.x, 0, destination.z));
-    }
-
     private void Update()
     {
         _stateMachine.Tick();
+    }
+    
+    private float DistanceFlat(Vector3 source, Vector3 destination)
+    {
+        return Vector3.Distance(new Vector3(source.x, 0, source.z), new Vector3(destination.x, 0, destination.z));
     }
 }
