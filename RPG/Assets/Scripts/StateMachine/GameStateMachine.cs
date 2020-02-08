@@ -7,19 +7,19 @@ public class GameStateMachine : MonoBehaviour
 {
     public Type CurrentStateType => _stateMachine.CurrentState.GetType();
     public static event Action<IState, IState> OnGameStateChanged;
-    
-    private static bool _initialized;
+
+    private static GameStateMachine _instance;
     private StateMachine _stateMachine;
 
     private void Awake()
     {
-        if (_initialized)
+        if (_instance != null)
         {
             Destroy(gameObject);
             return;
         }
 
-        _initialized = true;
+        _instance = this;
         DontDestroyOnLoad(gameObject);
         
         _stateMachine = new StateMachine();
