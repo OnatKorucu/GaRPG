@@ -1,13 +1,20 @@
 using System.Collections;
 using a_player;
+using NSubstitute;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
 namespace state_machine
 {
-    public class game_state_machine
+    public class game_state_machine 
     {
+        [SetUp]
+        public void setup()
+        {
+            PlayerInput.Instance = Substitute.For<IPlayerInput>(); 
+        }
+        
         [TearDown]
         public void tear_down()
         {
@@ -48,6 +55,22 @@ namespace state_machine
             yield return new WaitUntil(() => gameStateMachine.CurrentStateType == typeof(Play));
             Assert.AreEqual(typeof(Play), gameStateMachine.CurrentStateType);
         }
+        
+        [UnityTest]
+        public IEnumerator switches_from_play_to_paise_when_pause_button_pressed()
+        {
+            yield return Helpers.LoadMenuScene();
+            var gameStateMachine = GameObject.FindObjectOfType<GameStateMachine>();
+
+            PlayButton.LevelToLoad = "Level01";
+            yield return new WaitUntil(() => gameStateMachine.CurrentStateType == typeof(Play));
+
+            PlayerInput.Instance.PausePressed.Returns(true);
+            yield return null;
+            
+            Assert.AreEqual(typeof(Pause), gameStateMachine.CurrentStateType);
+        }
+
 
         [UnityTest]
         public IEnumerator only_allows_one_instance_to_exist()
