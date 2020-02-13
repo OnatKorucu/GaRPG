@@ -6,15 +6,13 @@ public class Player : MonoBehaviour
     private IMover _mover;
     private Rotator _rotator;
 
-    public IPlayerInput PlayerInput { get; set; } = new PlayerInput();
-
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
         _mover = new Mover(this);
         _rotator = new Rotator(this);
 
-        PlayerInput.MoveModeTogglePressed += MoveModeTogglePressed;
+        PlayerInput.Instance.MoveModeTogglePressed += MoveModeTogglePressed;
     }
 
     private void MoveModeTogglePressed()
@@ -36,7 +34,5 @@ public class Player : MonoBehaviour
         
         _mover.Tick();
         _rotator.Tick();
-
-        PlayerInput.Tick();
     }
 }

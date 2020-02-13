@@ -17,5 +17,7 @@ namespace a_player
         public float Horizontal { get; set; }
 
         public float MouseX { get; set; }
+        
+        public bool PausePressed { get; }
     }
 }

@@ -15,6 +15,8 @@ namespace a_player
         [UnitySetUp]
         public IEnumerator init()
         {
+            PlayerInput.Instance = Substitute.For<IPlayerInput>(); // need this and cannot inherit from base class player_input_test as [UnitySetUp] 
+                                                                    // seems to run before [SetUp]
             yield return Helpers.LoadItemTestsScene();
 
             _player = Helpers.GetPlayer();
@@ -25,7 +27,7 @@ namespace a_player
         [UnityTest]
         public IEnumerator picks_up_and_equips_item()
         {
-            _player.PlayerInput.Vertical.Returns(1f);
+            PlayerInput.Instance.Vertical.Returns(1f);
             
             Assert.AreNotSame(_item, _player.GetComponent<Inventory>().ActiveItem);
             

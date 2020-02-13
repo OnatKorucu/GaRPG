@@ -52,10 +52,6 @@ namespace a_player
         public static Player GetPlayer()
         {
             Player player = Object.FindObjectOfType<Player>();
-            
-            var testPlayerInput = Substitute.For<IPlayerInput>();
-            player.PlayerInput = testPlayerInput;
-
             return player;
         }
 
